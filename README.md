@@ -1,3 +1,3 @@
-# empMgr - CRUD - Administrador de Empleados con Python POO y BD.
+# empMgr - Administrador de Empleados con Python POO y BD.
 
 En progreso...
