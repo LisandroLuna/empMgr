@@ -32,6 +32,8 @@ class EmployeeManager(object):
         query = 'INSERT INTO employee (ID, NAME, LASTNAME, POSITION, SECTOR, SENIORYTY, SALARY) VALUES ("{}", "{}", "{}", "{}", "{}", "{}", "{}")'.format(obj.id, obj.name, obj.lastname, obj.position, obj.sector, obj.seniority, obj.salary)
         self.cursor.execute(query)
         self.conn.commit()
+        empl = self.get(obj.id)
+        return empl
 
     def get(self, id):
         query = 'SELECT * FROM employee WHERE ID = "{}"'.format(id)
@@ -41,6 +43,7 @@ class EmployeeManager(object):
             raise EmployeeDoNotExists('Dont exist Employee with ID {}'.format(id))
         empl = Employee(name=data[1], lastname=data[2], position=data[3], sector=data[4], seniority=data[5], salary=data[6])
         empl.id = id
+        print(empl)
         return empl
 
     def update(self, obj_old, obj):
